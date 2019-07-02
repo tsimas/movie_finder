@@ -1,0 +1,15 @@
+<mat-card *ngIf="movieDetail" class="movie-detail-card">
+  <mat-card-header>
+    <mat-card-title>{{movieDetail.title}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div [innerHTML]="movieDetail.extractHtml"></div>
+  </mat-card-content>
+  <mat-card-actions class="movie-detail-control-container">
+    <a fxFlex="30%" [href]="movieDetail.wikiUrl" target="_blank">Go to Wiki</a>
+    <a fxFlex="30%" [href]="movieDetail.imdbUrl" target="_blank">Go to Imdb</a>
+    <mat-slide-toggle fxFlex="30%" [disabled]="movieDetail.related.length === 0" (change)="onRelatedChange($event.checked)">Related videos</mat-slide-toggle>
+  </mat-card-actions>
+</mat-card>
+

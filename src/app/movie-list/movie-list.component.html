@@ -1,0 +1,15 @@
+<mat-card *ngFor="let movie of movies" class="movie-card">
+  <mat-card-header>
+    <img [src]="movie.image.url" mat-card-avatar />
+    <mat-card-title>{{movie.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{movie.actors}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!inRelatedMoviesMode" (click)="selectMovie(movie)" mat-button>Details</button>
+  </mat-card-actions>
+</mat-card>
+
