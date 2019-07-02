@@ -11,6 +11,7 @@ import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rx
 })
 export class MovieSearcherComponent implements OnInit {
   @Output() moviesChanged = new EventEmitter<Movie[]>();
+  @Output() onlyMoviesChanged = new EventEmitter<boolean>();
   private searchTerms = new Subject<string>();
 
   constructor(private movieService: MovieService) {}
@@ -18,6 +19,10 @@ export class MovieSearcherComponent implements OnInit {
   // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
+  }
+
+  onlyMovies(checked: boolean) {
+    this.onlyMoviesChanged.emit(checked);
   }
 
   ngOnInit(): void {

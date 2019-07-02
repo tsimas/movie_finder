@@ -1,3 +1,11 @@
+export enum ImdbFilmTypes {
+  TV_episode = 'TV episode',
+  TV_mini_series = 'TV mini-series',
+  TV_movie = 'TV movie',
+  TV_series = 'TV series',
+  Feature = 'feature',
+}
+
 export interface Image {
   url: string;
   width: number;
@@ -29,7 +37,8 @@ export function toMovie(data: MovieResponse): Movie {
     title: data.l,
     actors: data.s,
     year: data.y,
-    related: data.v ? data.v.map(m => toMovie(m)) : []
+    related: data.v ? data.v.map(m => toMovie(m)) : [],
+    q: data.q,
   } as Movie;
 }
 
@@ -40,6 +49,7 @@ export class Movie {
     actors: string;
     year: number;
     related: Movie[];
+    q: string;
 }
 
 export class MovieDetail {
