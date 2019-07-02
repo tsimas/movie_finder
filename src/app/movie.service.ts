@@ -21,7 +21,7 @@ export class MovieService {
     const subject = new Subject<Movie[]>();
     try {
       if (title.trim()) {
-        title = title.toLowerCase();
+        title = title.split(' ').join('_').toLowerCase();
         const fnName = `imdb$${title}`;
         from( fetchJsonp(`${MovieService.imdbApiRoot}/${title.charAt(0)}/${title}.json`, {
           jsonpCallbackFunction: fnName

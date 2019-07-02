@@ -13,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 
 import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
+import { SpecialCharacterDirective } from './special-character.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
     MovieFinderComponent,
     MovieDetailComponent,
     MovieListComponent,
-    MovieSearcherComponent
+    MovieSearcherComponent,
+    SpecialCharacterDirective
   ],
   imports: [
     BrowserModule,

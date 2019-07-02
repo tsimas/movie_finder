@@ -1,6 +1,6 @@
 <mat-card *ngFor="let movie of movies" class="movie-card">
   <mat-card-header>
-    <img [src]="movie.image.url" mat-card-avatar />
+    <img *ngIf="movie.image" [src]="movie.image.url" mat-card-avatar />
     <mat-card-title>{{movie.title}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
