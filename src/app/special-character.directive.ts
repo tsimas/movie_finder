@@ -5,7 +5,7 @@ import { Directive, HostListener, ElementRef, Input } from '@angular/core';
 
 export class SpecialCharacterDirective {
 
-  regexStr = '^[a-zA-Z0-9_]*$';
+  regexStr = '^[a-zA-Z0-9_ ]*$';
   constructor(private el: ElementRef) { }
 
   @HostListener('keypress', ['$event']) onKeyPress(event) {

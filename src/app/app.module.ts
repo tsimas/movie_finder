@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MovieFinderComponent } from './movie-finder/movie-finder.component';
+import { MovieFinderPageComponent } from './movie-finder-page/movie-finder-page.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieSearcherComponent } from './movie-searcher/movie-searcher.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
@@ -19,7 +19,7 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarHorizontalPosition} from '@ang
 @NgModule({
   declarations: [
     AppComponent,
-    MovieFinderComponent,
+    MovieFinderPageComponent,
     MovieDetailComponent,
     MovieListComponent,
     MovieSearcherComponent,

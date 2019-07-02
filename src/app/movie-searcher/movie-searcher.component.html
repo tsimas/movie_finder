@@ -1,6 +1,10 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-      <input appSpecialCharacter matInput placeholder="Type the search text" #searchBox (input)="search(searchBox.value)" />
-  </mat-form-field>
-    <mat-checkbox #onlyFilms (change)="onlyMovies($event.checked)">Only films</mat-checkbox>
-</form>
+<mat-card>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input appSpecialCharacter matInput placeholder="Type the search text" #searchBox (input)="search(searchBox.value)" />
+      </mat-form-field>
+      <mat-checkbox #onlyFilms (change)="onlyMovies($event.checked)">Only films</mat-checkbox>
+    </form>
+  </mat-card-content>
+</mat-card>

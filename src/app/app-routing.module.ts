@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MovieFinderComponent} from './movie-finder/movie-finder.component';
+import {MovieFinderPageComponent} from './movie-finder-page/movie-finder-page.component';
 
 const routes: Routes = [
-  {path: 'movie-finder', component: MovieFinderComponent},
+  {path: 'movie-finder', component: MovieFinderPageComponent},
   { path: '', redirectTo: '/movie-finder', pathMatch: 'full' },
 ];
 
