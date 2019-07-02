@@ -1,6 +1,6 @@
 <div class="movie-finder-container">
   <div fxFlex="100%">
-    <app-movie-searcher (onlyMoviesChanged)="onlyMovies($event)" (moviesChanged)="refresMovies($event)"></app-movie-searcher>
+    <app-movie-searcher (onlyMoviesChanged)="onlyMovies($event)" (moviesChanged)="refreshMovies($event)"></app-movie-searcher>
   </div>
   <div fxFlex="50%">
     <app-movie-list [movies]="movies"

@@ -18,21 +18,16 @@ export class MovieFinderPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  refresMovies(movies: Movie[]) {
+  refreshMovies(movies: Movie[]) {
     this.selectedMovie = null;
     this.inRelatedMoviesMode = false;
     this.originalMovieResult = movies;
-    this.reloadMovies();
+    this.reloadCalculateMovies();
   }
 
   onlyMovies(checked: boolean) {
-    if (checked) {
-      this.inOnlyMovieMode = true;
-      this.reloadMovies();
-    } else {
-      this.inOnlyMovieMode = false;
-      this.reloadMovies();
-    }
+    this.inOnlyMovieMode = checked;
+    this.reloadCalculateMovies();
   }
 
   selectMovie(movie: Movie) {
@@ -40,13 +35,8 @@ export class MovieFinderPageComponent implements OnInit {
   }
 
   showRelatedMovies(isShowRelatedMovies: boolean) {
-    if (isShowRelatedMovies) {
-      this.inRelatedMoviesMode = true;
-      this.reloadMovies();
-    } else {
-      this.inRelatedMoviesMode = false;
-      this.reloadMovies();
-    }
+    this.inRelatedMoviesMode = isShowRelatedMovies;
+    this.reloadCalculateMovies();
   }
 
   private filterMovies(movies: Movie[]): Movie[] {
@@ -56,7 +46,7 @@ export class MovieFinderPageComponent implements OnInit {
     );
   }
 
-  private reloadMovies() {
+  private reloadCalculateMovies() {
     let movies = this.inRelatedMoviesMode ? this.selectedMovie.related : this.originalMovieResult;
     movies = this.inOnlyMovieMode ? this.filterMovies(movies) : movies;
     this.movies = movies;
