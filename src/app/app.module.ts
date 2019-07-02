@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 
 import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 import { SpecialCharacterDirective } from './special-character.directive';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarHorizontalPosition} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { SpecialCharacterDirective } from './special-character.directive';
     HttpClientModule,
     HttpClientJsonpModule
   ],
-  providers: [],
+  providers: [ {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
+    duration: 2500,
+      horizontalPosition: 'right'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

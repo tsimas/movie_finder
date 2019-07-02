@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Movie, MovieDetail, toMovieDetail} from '../model/movie';
 import {MovieService} from '../movie.service';
+import {catchError} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-movie-detail',
@@ -12,7 +15,8 @@ export class MovieDetailComponent implements OnInit, OnChanges {
   @Input() movie: Movie;
   movieDetail: MovieDetail;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService,
+              private snackBar: MatSnackBar) { }
 
   ngOnChanges(changes: any) {
     if (changes.movie.currentValue) {
@@ -22,6 +26,7 @@ export class MovieDetailComponent implements OnInit, OnChanges {
           this.movieDetail.imdbUrl += this.movie.id.startsWith('tt') ? `title/${this.movie.id}` : `name/${this.movie.id}`;
           this.movieDetail.related = this.movie.related;
         }, error => {
+          this.snackBar.open(`Not found Wiki page for string: ${this.movie.title}`);
           this.movieDetail = null;
         });
     }

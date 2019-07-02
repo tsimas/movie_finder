@@ -3,6 +3,8 @@ import {Movie, MovieDetail, toMovie, toMovieDetail, WikiResponse} from './model/
 import {Subject, from, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import * as fetchJsonp from 'fetch-jsonp';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
