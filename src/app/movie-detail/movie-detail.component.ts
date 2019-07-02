@@ -27,7 +27,10 @@ export class MovieDetailComponent implements OnInit, OnChanges {
           this.movieDetail.related = this.movie.related;
         }, error => {
           this.snackBar.open(`Not found Wiki page for string: ${this.movie.title}`);
-          this.movieDetail = null;
+          this.movieDetail = new MovieDetail();
+          this.movieDetail.imdbUrl += this.movie.id.startsWith('tt') ? `title/${this.movie.id}` : `name/${this.movie.id}`;
+          this.movieDetail.related = this.movie.related;
+          this.movieDetail.title = this.movie.title;
         });
     }
   }

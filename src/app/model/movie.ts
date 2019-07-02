@@ -45,7 +45,7 @@ export class Movie {
 export class MovieDetail {
   title: string;
   wikiUrl: string;
-  imdbUrl: string;
+  imdbUrl = 'https://www.imdb.com/';
   extract: string;
   extractHtml: string;
   related: Movie[];
@@ -64,12 +64,12 @@ export interface WikiResponse {
 }
 
 export function toMovieDetail(data: WikiResponse): MovieDetail {
-  return {
-    title: data.title,
-    wikiUrl: data.content_urls.desktop.page,
-    imdbUrl: 'https://www.imdb.com/',
-    extract: data.extract,
-    extractHtml: data.extract_html,
-    related: []
-  } as MovieDetail;
+  const instance = new MovieDetail();
+
+  instance.title = data.title;
+  instance.wikiUrl = data.content_urls.desktop.page;
+  instance.extract = data.extract;
+  instance.extractHtml = data.extract_html;
+  instance.related = [];
+  return instance;
 }
