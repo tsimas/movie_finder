@@ -4,6 +4,7 @@ import {Subject, from, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import * as fetchJsonp from 'fetch-jsonp';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {take} from 'rxjs/operators';
 
 
 const httpOptions = {
@@ -30,8 +31,10 @@ export class MovieService {
         }))
           .subscribe(
             (value: Response) => {
-              from(value.json())
-                .subscribe( (movieResponse: { d: [] }) => subject.next((movieResponse.d || []).map(e => toMovie(e))));
+              from(value.json()).
+                pipe(
+                  take(1)
+              ).subscribe( (movieResponse: { d: [] }) => subject.next((movieResponse.d || []).map(e => toMovie(e))));
             }
           );
       } else {
